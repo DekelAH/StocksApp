@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "fE59mNzUwF1ODlExl/Mz5TAewaN/go/lm0piyiq7/n4=",
+  "Source": "StocksApp",
+  "BasePath": "_content/StocksApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "StocksApp\\wwwroot",
+      "Source": "StocksApp",
+      "ContentRoot": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\",
+      "BasePath": "_content/StocksApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\StocksStyleSheet.css",
+      "SourceId": "StocksApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\",
+      "BasePath": "_content/StocksApp",
+      "RelativePath": "StocksStyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StocksStyleSheet.css"
+    }
+  ]
+}
