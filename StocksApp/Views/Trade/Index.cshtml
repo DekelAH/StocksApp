@@ -1,18 +1,14 @@
-﻿@model StocksApp.Models.Stock
-
-@{
-    ViewBag.Title = "Home";
-}
+﻿@model StocksApp.Models.StockTrade
 
 <div class="box trading-panel">
     <div class="flex trading-panel-flex">
         <div id="stock-price-panel">
             <div class="stock">
-                <h1 class="stock-title">@Model.StockSymbol</h1>
+                <h1 class="stock-title" id="stock-symbol">@Model.CompanyProfile?.Name (@Model.StockSymbol)</h1>
                 <table>
                     <tr>
                         <td>Current Price: </td>
-                        <th><small>$</small><span>@Model.CurrentPrice.ToString("N")</span></th>
+                        <th><small>$</small><span id="currentPrice">@Model.CurrentPrice.ToString("N")</span></th>
                     </tr>
                     <tr>
                         <td>Change: </td>
@@ -43,3 +39,37 @@
         </div>
     </div>
 </div>
+
+<script language="javascript" type="text/javascript">
+
+    var day = new Date();
+    var time = day.getHours() + '.' + day.getMinutes();
+
+    // My country time zone - stock market by the US
+    // Can remove the if condition and just replace the stock symbol with BINANCE:BTCUSDT - crypto is 24/7
+    if (time >= 16.3 && time <= 23.0) {
+
+        const socket = new WebSocket('wss://ws.finnhub.io?token=@ViewBag.Token');
+        var companySymbol = document.getElementById("stock-symbol").innerHTML;
+
+        socket.addEventListener('open', function (event) {
+            socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': Symbol }))
+        });
+
+        setInterval(() => {
+
+            socket.addEventListener('message', function (event) {
+                var stockDetails = JSON.parse(event.data);
+                document.getElementById("currentPrice").innerHTML = stockDetails["data"][0].p;
+
+                console.log('Message from server ', event.data);
+            });
+
+        }, 1500);
+
+        if (window.closed) {
+            socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
+        }
+    }
+
+</script>

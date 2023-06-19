@@ -1,6 +1,6 @@
 ﻿namespace StocksApp.Models
 {
-    public class Stock
+    public class StockTrade
     {
         #region Properties
 
@@ -12,6 +12,8 @@
         public double LowPrice { get; set; }
         public double OpenPrice { get; set; }
         public double PreviousClosePrice { get; set; }
+        public uint Quantity { get; set; }
+        public CompanyProfile? CompanyProfile { get; set; }
 
         #endregion
     }
