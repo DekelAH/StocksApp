@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.View_Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using StocksApp.Models;
 using StocksApp.OptionsModels;
 using StocksApp.ServiceContracts;
 
@@ -12,7 +12,7 @@ namespace StocksApp.Controllers
 
         private readonly IFinnhubService _finnHubService;
         private readonly IOptions<TradingOptions> _tradingOptions;
-        private readonly string _token;
+        private readonly string? _token;
 
         #endregion
 
