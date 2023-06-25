@@ -1,4 +1,5 @@
-﻿using ServiceContracts.Contracts;
+﻿using Entities.View_Models;
+using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,21 @@ namespace Services
 {
     public class StocksService : IStocksService
     {
+        #region Fields
+
+        private readonly List<StockTrade> _stocksList;
+
+        #endregion
+
+        #region Ctors
+
+        public StocksService()
+        {
+            _stocksList = new List<StockTrade>();
+        }
+
+        #endregion
+
         #region Methods
 
         public Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest)
