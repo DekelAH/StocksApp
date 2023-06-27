@@ -1,11 +1,7 @@
-﻿using Entities.View_Models;
+﻿using Entities.Models;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Services.Helpers;
 
 namespace Services
 {
@@ -13,7 +9,8 @@ namespace Services
     {
         #region Fields
 
-        private readonly List<StockTrade> _stocksList;
+        private readonly List<BuyOrder> _buyOrders;
+        private readonly List<SellOrder> _sellOrders;
 
         #endregion
 
@@ -21,7 +18,8 @@ namespace Services
 
         public StocksService()
         {
-            _stocksList = new List<StockTrade>();
+            _buyOrders = new List<BuyOrder>();
+            _sellOrders = new List<SellOrder>();
         }
 
         #endregion
@@ -30,22 +28,42 @@ namespace Services
 
         public Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest)
         {
-            throw new NotImplementedException();
+            if (buyOrderRequest == null)
+            {
+                throw new ArgumentNullException(nameof(buyOrderRequest));
+            }
+            ValidationHelper.ModelValidation(buyOrderRequest);
+
+            BuyOrder buyOrder = buyOrderRequest.ToBuyOrder();
+            buyOrder.BuyOrderID = Guid.NewGuid();
+            _buyOrders.Add(buyOrder);
+
+            return Task.FromResult(buyOrder.ToBuyOrderResponse());
         }
 
         public Task<SellOrderResponse> CreateSellOrder(SellOrderRequest? sellOrderRequest)
         {
-            throw new NotImplementedException();
+            if (sellOrderRequest == null)
+            {
+                throw new ArgumentNullException(nameof(sellOrderRequest));
+            }
+            ValidationHelper.ModelValidation(sellOrderRequest);
+
+            SellOrder sellOrder = sellOrderRequest.ToSellOrder();
+            sellOrder.SellOrderID = Guid.NewGuid();
+            _sellOrders.Add(sellOrder);
+
+            return Task.FromResult(sellOrder.ToSellOrderResponse());
         }
 
-        public Task<List<BuyOrderResponse>> GetBuyOrders()
+        public Task<List<BuyOrderResponse>> GetAllBuyOrders()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_buyOrders.Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList());
         }
 
-        public Task<List<SellOrderResponse>> GetSellOrders()
+        public Task<List<SellOrderResponse>> GetAllSellOrders()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_sellOrders.Select(sellOrder => sellOrder.ToSellOrderResponse()).ToList());
         }
 
         #endregion

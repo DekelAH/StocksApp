@@ -27,7 +27,7 @@ namespace Entities.CustomValidators
             if (value != null)
             {
                 DateTime date = (DateTime)value;
-                if (date.Year >= MinimumYear)
+                if (date.Year < MinimumYear)
                 {
                     return new ValidationResult(string.Format(ErrorMessage ?? DefaultErrorMessage, MinimumYear));
                 }
