@@ -4,7 +4,8 @@
     <div class="flex trading-panel-flex">
         <div id="stock-price-panel">
             <div class="stock">
-                <h1 class="stock-title" id="stock-symbol">@Model.CompanyProfile?.Name (@Model.StockSymbol)</h1>
+                <h1 class="stock-title flex-1">@Model.CompanyProfile?.Name (@Model.StockSymbol)</h1>
+                <p id="stock-symbol" hidden>@Model.StockSymbol</p>
                 <table>
                     <tr>
                         <td>Current Price: </td>
@@ -49,11 +50,11 @@
     // Can remove the if condition and just replace the stock symbol with BINANCE:BTCUSDT - crypto is 24/7
     if (time >= 16.3 && time <= 23.0) {
 
-        const socket = new WebSocket('wss://ws.finnhub.io?token=@ViewBag.Token');
+        const socket = new WebSocket('wss://ws.finnhub.io?token=@(ViewBag.Token)');
         var companySymbol = document.getElementById("stock-symbol").innerHTML;
 
         socket.addEventListener('open', function (event) {
-            socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': Symbol }))
+            socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': companySymbol }))
         });
 
         setInterval(() => {
@@ -64,11 +65,10 @@
 
                 console.log('Message from server ', event.data);
             });
-
         }, 1500);
 
         if (window.closed) {
-            socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
+            socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': companySymbol }))
         }
     }
 
