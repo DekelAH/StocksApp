@@ -1,46 +1,64 @@
-﻿@model Entities.View_Models.StockTrade
+﻿@model ServiceContracts.View_Models.StockTrade
+@{
+    ViewBag.CurrentUrl = "~/trade/index";
+}
 
-<div class="box trading-panel">
-    <div class="flex trading-panel-flex">
-        <div id="stock-price-panel">
-            <div class="stock">
-                <h1 class="stock-title flex-1">@Model.CompanyProfile?.Name (@Model.StockSymbol)</h1>
-                <p id="stock-symbol" hidden>@Model.StockSymbol</p>
-                <table>
-                    <tr>
-                        <td>Current Price: </td>
-                        <th><small>$</small><span id="currentPrice">@Model.CurrentPrice.ToString("N")</span></th>
-                    </tr>
-                    <tr>
-                        <td>Change: </td>
-                        <th><small>$</small><span>@Model.Change.ToString("N")</span></th>
-                    </tr>
-                    <tr>
-                        <td>Percent Change: </td>
-                        <th><span>@Model.PercentChange.ToString("N")</span><small>%</small></th>
-                    </tr>
-                    <tr>
-                        <td>High Price: </td>
-                        <th><small>$</small><span>@Model.HighPrice.ToString("N")</span></th>
-                    </tr>
-                    <tr>
-                        <td>Low Price: </td>
-                        <th><small>$</small><span>@Model.LowPrice.ToString("N")</span></th>
-                    </tr>
-                    <tr>
-                        <td>Open Price: </td>
-                        <th><small>$</small><span>@Model.OpenPrice.ToString("N")</span></th>
-                    </tr>
-                    <tr>
-                        <td>Previous Close Price: </td>
-                        <th><small>$</small><span>@Model.PreviousClosePrice.ToString("N")</span></th>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
+
+<div class="flex mt ml">
+    <p class="text-grey">Stocks <i class="fa-sharp fa-solid fa-caret-right"></i> @Model.StockName</p>
 </div>
 
+<div class="box trading-panel">
+
+    <form method="post">
+        <div class="flex trading-panel-flex">
+            <div id="stock-price-panel">
+                <div class="stock">
+                    <h1 class="stock-title flex-1">@Model.StockName (@Model.StockSymbol)</h1>
+                    <p id="StockSymbol" hidden>@Model.StockSymbol</p>
+                    <h1 class="stock-price">
+                        <small class="text-grey">$ </small>
+                        <span id="Price" name="Price">@Model.Price.ToString("N")</span>
+                    </h1>
+                </div>
+            </div>
+
+            <div id="new-order-panel">
+                <h3 class="text-grey">New Order</h3>
+                <div class="mt">
+                    <p>Quantity:</p>
+                    
+                    <input type="number" class="form-input mt" name="Quantity" required="required" placeholder="Quantity"
+                           id="Quantity" style="width:25%;" value="@(Model.Quantity)" min="1" max="100000" />
+                </div>
+                <div class="button-panel">
+                    <button type="submit" formaction="~/trade/buy-order" class="button trading-button button-green-back">
+                        <i class="fa fa-arrow-up" aria-hidden="true"></i> Buy
+                    </button>
+                    <button type="submit" formaction="~/trade/sell-order" class="button trading-button button-red-back">
+                        <i class="fa fa-arrow-down" aria-hidden="true"></i> Sell
+                    </button>
+                </div>
+
+                @if (ViewBag.Errors != null)
+                {
+                    <div class="text-red mt">
+                        <ul>
+                            @foreach (string error in ViewBag.Errors)
+                            {
+                                <li class="ml">@error</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <input type="hidden" name="StockSymbol" id="StockSymbol" value="@Model.StockSymbol" />
+        <input type="hidden" name="StockName" id="StockName" value="@Model.StockName" />
+        <input type="hidden" name="Price" id="price" value="@Model.Price" />
+    </form>
+</div>
 <script language="javascript" type="text/javascript">
 
     var day = new Date();
@@ -51,7 +69,7 @@
     if (time >= 16.3 && time <= 23.0) {
 
         const socket = new WebSocket('wss://ws.finnhub.io?token=@(ViewBag.Token)');
-        var companySymbol = document.getElementById("stock-symbol").innerHTML;
+        var companySymbol = document.getElementById("StockSymbol").innerHTML;
 
         socket.addEventListener('open', function (event) {
             socket.send(JSON.stringify({ 'type': 'subscribe', 'symbol': companySymbol }))
@@ -61,7 +79,7 @@
 
             socket.addEventListener('message', function (event) {
                 var stockDetails = JSON.parse(event.data);
-                document.getElementById("currentPrice").innerHTML = stockDetails["data"][0].p;
+                document.getElementById("Price").innerHTML = stockDetails.data[0].p;
 
                 console.log('Message from server ', event.data);
             });

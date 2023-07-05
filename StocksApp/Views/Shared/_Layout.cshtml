@@ -4,30 +4,47 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="~/StocksStyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
         <div class="page-content">
-            <div class="mb">
-
-                <div class="flex" id="top-bar-div">
-                    <div class="flex-1" id="app-title-div">
-                        <h1 class="app-title">
-                            <i class="fa-solid fa-money-bill-trend-up"></i>
-                            Stocks
-                        </h1>
-                    </div>
-                    <div class="flex-1">
-                        Login
-                    </div>
+            <div class="flex" style="justify-content: space-between">
+                <div>
+                    <h1><i class="fa-solid fa-money-bill-trend-up ml"></i>Stocks</h1>
                 </div>
-
+                <div>
+                    <input type="search" style="width:60%; text-align:left" class="form-input" placeholder="Search Stocks" name="stockSymbolSearch"
+                           value="@ViewBag.CurrentStockSymbolSearch" />
+                    <i class="fa fa-cog fa-lg ml" aria-hidden="true"></i>
+                    <button class="button button-blue-back ml">Login</button>
+                </div>
             </div>
 
+            <div class="navbar mb">
+                <ul>
+                    @if (ViewBag.CurrentUrl == "~/trade/index")
+                    {
+                        <li><a href="~/trade/index" class="nav-active">Trade</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="~/trade/index">Trade</a></li>
+                    }
+
+                    @if (ViewBag.CurrentUrl == "~/trade/orders")
+                    {
+                        <li><a href="~/trade/orders" class="nav-active">Orders</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="~/trade/orders">Orders</a></li>
+                    }
+                </ul>
+            </div>
             @RenderBody()
         </div>
     </div>

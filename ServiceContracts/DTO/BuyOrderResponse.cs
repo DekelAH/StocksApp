@@ -1,8 +1,4 @@
 ﻿using Entities.Models;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Metrics;
-using System.Net;
-using System.Reflection;
 
 namespace ServiceContracts.DTO
 {
