@@ -35,7 +35,7 @@ namespace StocksApp.Controllers
 
         #region Action Methods
 
-        [Route("index")]
+        [Route("[action]")]
         [Route("/")]
         [HttpGet]
         public async Task<IActionResult> Index(string? stockSymbolSearch)
@@ -70,7 +70,7 @@ namespace StocksApp.Controllers
             return View();
         }
 
-        [Route("buy-order")]
+        [Route("[action]")]
         [HttpPost]
         public async Task<IActionResult> BuyOrder(BuyOrderRequest buyOrderRequest)
         {
@@ -94,7 +94,7 @@ namespace StocksApp.Controllers
             return RedirectToAction("Orders");
         }
 
-        [Route("sell-order")]
+        [Route("[action]")]
         [HttpPost]
         public async Task<IActionResult> SellOrder(SellOrderRequest sellOrderRequest)
         {
@@ -118,7 +118,7 @@ namespace StocksApp.Controllers
             return RedirectToAction("Orders");
         }
 
-        [Route("orders")]
+        [Route("[action]")]
         [HttpGet]
         public async Task<IActionResult> Orders()
         {
