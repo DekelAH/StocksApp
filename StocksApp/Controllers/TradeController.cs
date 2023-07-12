@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Rotativa.AspNetCore;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using ServiceContracts.View_Models;
@@ -129,6 +131,21 @@ namespace StocksApp.Controllers
             };
 
             return View(orders);
+        }
+
+        [Route("[action]")]
+        public async Task<IActionResult> OrdersPDF()
+        {
+            List<IOrderResponse> orders = new();
+            orders.AddRange(await _stocksService.GetAllBuyOrders());
+            orders.AddRange(await _stocksService.GetAllSellOrders());
+            orders = orders.OrderByDescending(order => order.DateAndTimeOfOrder).ToList();
+
+            return new ViewAsPdf("OrdersPDF", orders, ViewData)
+            {
+                PageMargins = new Rotativa.AspNetCore.Options.Margins() {Top = 20, Bottom = 20, Left = 20, Right = 20 },
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape
+            };
         }
 
         #endregion

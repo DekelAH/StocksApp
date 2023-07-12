@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "PackagePath": "staticwebassets\\Rotativa\\wkhtmltopdf.exe"
+    },
+    {
       "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\StocksStyleSheet.css",
       "PackagePath": "staticwebassets\\StocksStyleSheet.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fE59mNzUwF1ODlExl/Mz5TAewaN/go/lm0piyiq7/n4=",
+  "Hash": "w8ZBZZi7BM7B0OJYjVX77mGHGjLTMVLVAfdpcoQGq6U=",
   "Source": "StocksApp",
   "BasePath": "_content/StocksApp",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\Rotativa\\wkhtmltopdf.exe",
+      "SourceId": "StocksApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\",
+      "BasePath": "_content/StocksApp",
+      "RelativePath": "Rotativa/wkhtmltopdf.exe",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Rotativa\\wkhtmltopdf.exe"
+    },
     {
       "Identity": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\StocksStyleSheet.css",
       "SourceId": "StocksApp",

@@ -10,3 +10,5 @@ D:\Programming\Github Projects\StocksApp\Entities\obj\Debug\net6.0\Entities.dll
 D:\Programming\Github Projects\StocksApp\Entities\obj\Debug\net6.0\refint\Entities.dll
 D:\Programming\Github Projects\StocksApp\Entities\obj\Debug\net6.0\Entities.pdb
 D:\Programming\Github Projects\StocksApp\Entities\obj\Debug\net6.0\ref\Entities.dll
+D:\Programming\Github Projects\StocksApp\Entities\bin\Debug\net6.0\Entities.runtimeconfig.json
+D:\Programming\Github Projects\StocksApp\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache

@@ -2,7 +2,7 @@
 
 namespace ServiceContracts.DTO
 {
-    public class SellOrderResponse
+    public class SellOrderResponse : IOrderResponse
     {
         #region Properties
 
@@ -12,7 +12,8 @@ namespace ServiceContracts.DTO
         public DateTime? DateAndTimeOfOrder { get; set; }
         public uint Quantity { get; set; }
         public double Price { get; set; }
-        public double TradeAmount { get; set; }
+        public double? TradeAmount { get; set; }
+        public OrderType TypeOfOrder => OrderType.SellOrder;
 
         #endregion
 

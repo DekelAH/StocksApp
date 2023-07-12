@@ -1,4 +1,5 @@
-﻿using ServiceContracts.Contracts;
+﻿using Entities.DbContextModels;
+using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using Services;
 using Xunit.Abstractions;
@@ -16,9 +17,10 @@ namespace UnitTesting
 
         #region Ctors
 
-        public StockServiceTest(ITestOutputHelper testOutputHelper)
+        public StockServiceTest(ITestOutputHelper testOutputHelper, StockMarketDbContext stockMarketDbContext)
         {
-            _stocksService = new StocksService();
+
+            _stocksService = new StocksService(stockMarketDbContext);
             _testOutputHelper = testOutputHelper;
         }
 

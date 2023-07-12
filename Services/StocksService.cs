@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DbContextModels;
+using Entities.Models;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using Services.Helpers;
@@ -9,17 +10,15 @@ namespace Services
     {
         #region Fields
 
-        private readonly List<BuyOrder> _buyOrders;
-        private readonly List<SellOrder> _sellOrders;
+        private readonly StockMarketDbContext _db;
 
         #endregion
 
         #region Ctors
 
-        public StocksService()
+        public StocksService(StockMarketDbContext stockMarketDbContext)
         {
-            _buyOrders = new List<BuyOrder>();
-            _sellOrders = new List<SellOrder>();
+            _db = stockMarketDbContext;
         }
 
         #endregion
@@ -36,7 +35,10 @@ namespace Services
 
             BuyOrder buyOrder = buyOrderRequest.ToBuyOrder();
             buyOrder.BuyOrderID = Guid.NewGuid();
-            _buyOrders.Add(buyOrder);
+
+            _db.Sp_InsertBuyOrder(buyOrder);
+            //await _db.AddAsync(buyOrder);
+            //await _db.SaveChangesAsync();
 
             return Task.FromResult(buyOrder.ToBuyOrderResponse());
         }
@@ -51,19 +53,22 @@ namespace Services
 
             SellOrder sellOrder = sellOrderRequest.ToSellOrder();
             sellOrder.SellOrderID = Guid.NewGuid();
-            _sellOrders.Add(sellOrder);
+
+            _db.Sp_InsertSellOrder(sellOrder);
+            //await _db.AddAsync(sellOrder);
+            //await _db.SaveChangesAsync();
 
             return Task.FromResult(sellOrder.ToSellOrderResponse());
         }
 
         public Task<List<BuyOrderResponse>> GetAllBuyOrders()
         {
-            return Task.FromResult(_buyOrders.Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList());
+            return Task.FromResult(_db.Sp_GetAllBuyOrders().Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList());
         }
 
         public Task<List<SellOrderResponse>> GetAllSellOrders()
         {
-            return Task.FromResult(_sellOrders.Select(sellOrder => sellOrder.ToSellOrderResponse()).ToList());
+            return Task.FromResult(_db.Sp_GetAllSellOrders().Select(sellOrder => sellOrder.ToSellOrderResponse()).ToList());
         }
 
         #endregion
