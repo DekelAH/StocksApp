@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using RepositoryContracts;
 using StocksApp.ServiceContracts;
 using System.Text.Json;
 
@@ -8,17 +9,15 @@ namespace StocksApp.Services
     {
         #region Fields
 
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration _configuration;
+        private readonly IFinnhubRepository _finnhubRepository;
 
         #endregion
 
         #region Ctors
 
-        public FinnhubService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public FinnhubService(IFinnhubRepository finnhubRepository)
         {
-            _httpClientFactory = httpClientFactory;
-            _configuration = configuration;
+            _finnhubRepository = finnhubRepository;
         }
 
         #endregion
@@ -27,60 +26,26 @@ namespace StocksApp.Services
 
         public async Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol)
         {
-            using (HttpClient httpClient = _httpClientFactory.CreateClient())
-            {
-                HttpRequestMessage httpRequestMessage = new HttpRequestMessage()
-                {
-                    RequestUri = new Uri($"https://finnhub.io/api/v1/stock/profile2?symbol={stockSymbol}&token={_configuration["FinnhubToken"]}"),
-                    Method = HttpMethod.Get,
-                };
-
-                HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
-                Stream stream = await httpResponseMessage.Content.ReadAsStreamAsync();
-                StreamReader streamReader = new StreamReader(stream);
-                string response = await streamReader.ReadToEndAsync();
-                Dictionary<string, object>? responseDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
-
-                if (responseDictionary == null)
-                {
-                    throw new InvalidOperationException("No response from finnhub server");
-                }
-                else if (responseDictionary.ContainsKey("error"))
-                {
-                    throw new InvalidOperationException(Convert.ToString(responseDictionary["error"]));
-                }
-
-                return responseDictionary;
-            }
+            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetCompanyProfile(stockSymbol);
+            return responseDictionary;
         }
 
         public async Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol)
         {
-            using (HttpClient httpClient = _httpClientFactory.CreateClient())
-            {
-                HttpRequestMessage httpRequestMessage = new HttpRequestMessage()
-                {
-                    RequestUri = new Uri($"https://finnhub.io/api/v1/quote?symbol={stockSymbol}&token={_configuration["FinnhubToken"]}"),
-                    Method = HttpMethod.Get
-                };
+            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetStockPriceQuote(stockSymbol);
+            return responseDictionary;
+        }
 
-                HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
-                Stream stream = await httpResponseMessage.Content.ReadAsStreamAsync();
-                StreamReader streamReader = new StreamReader(stream);
-                string response = await streamReader.ReadToEndAsync();
-                Dictionary<string, object>? responseDictionary = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
+        public async Task<List<Dictionary<string, object>>?> GetStocks()
+        {
+            List<Dictionary<string, object>>? responseDictionary = await _finnhubRepository.GetStocks();
+            return responseDictionary;
+        }
 
-                if (responseDictionary == null)
-                {
-                    throw new InvalidOperationException("No response from finnhub server");
-                }
-                else if (responseDictionary.ContainsKey("error"))
-                {
-                    throw new InvalidOperationException(Convert.ToString(responseDictionary["error"]));
-                }
-
-                return responseDictionary;
-            }
+        public async Task<Dictionary<string, object>?> SearchStocks(string stockSymbolToSearch)
+        {
+            Dictionary<string, object>? responseDictionary = await _finnhubRepository.SearchStocks(stockSymbolToSearch);
+            return responseDictionary;
         }
 
         #endregion

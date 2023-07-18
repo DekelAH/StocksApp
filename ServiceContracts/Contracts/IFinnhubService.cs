@@ -18,6 +18,19 @@
         /// <returns>Data in form of dictionary</returns>
         Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol);
 
+        /// <summary>
+        /// Getting the stocks data from finnhub website and returns it in a form of dictionary
+        /// </summary>
+        /// <returns>Data in form of dictionary</returns>
+        Task<List<Dictionary<string, object>>?> GetStocks();
+
+        /// <summary>
+        /// Getting the stock details by stock symbol
+        /// </summary>
+        /// <param name="stockSymbolToSearch">String stock symbol to search</param>
+        /// <returns>Data in form of dictionary</returns>
+        Task<Dictionary<string, object>?> SearchStocks(string stockSymbolToSearch);
+
         #endregion
     }
 }

@@ -1,5 +1,7 @@
 using Entities.DbContextModels;
 using Microsoft.EntityFrameworkCore;
+using Repositories;
+using RepositoryContracts;
 using ServiceContracts.Contracts;
 using Services;
 using StocksApp.ServiceContracts;
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IFinnhubService, FinnhubService>();
 builder.Services.AddScoped<IStocksService, StocksService>();
+builder.Services.AddScoped<IFinnhubRepository, FinnhubRepository>();
+builder.Services.AddScoped<IStocksRepository, StocksRepository>();
 builder.Services.AddDbContext<StockMarketDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));

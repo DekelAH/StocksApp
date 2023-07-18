@@ -1,0 +1,15 @@
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\bin\Debug\net6.0\RepositoryContracts.deps.json
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\bin\Debug\net6.0\RepositoryContracts.dll
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\bin\Debug\net6.0\RepositoryContracts.pdb
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\bin\Debug\net6.0\Entities.dll
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\bin\Debug\net6.0\Entities.pdb
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.csproj.AssemblyReference.cache
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.AssemblyInfoInputs.cache
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.AssemblyInfo.cs
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.csproj.CoreCompileInputs.cache
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.csproj.CopyComplete
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.dll
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\refint\RepositoryContracts.dll
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\RepositoryContracts.pdb
+D:\Programming\Github Projects\StocksApp\RepositoryContracts\obj\Debug\net6.0\ref\RepositoryContracts.dll

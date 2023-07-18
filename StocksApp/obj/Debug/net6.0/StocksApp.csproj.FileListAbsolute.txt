@@ -88,3 +88,7 @@ D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Newtonsoft.J
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Rotativa.AspNetCore.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\obj\Debug\net6.0\StocksApp.MvcApplicationPartsAssemblyInfo.cs
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryContracts.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryContracts.pdb
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.pdb

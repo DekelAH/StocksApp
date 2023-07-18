@@ -1,8 +1,10 @@
 ﻿using Entities.DbContextModels;
 using Entities.Models;
+using RepositoryContracts;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using Services.Helpers;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -10,22 +12,22 @@ namespace Services
     {
         #region Fields
 
-        private readonly StockMarketDbContext _db;
+        private readonly IStocksRepository _stocksRepository;
 
         #endregion
 
         #region Ctors
 
-        public StocksService(StockMarketDbContext stockMarketDbContext)
+        public StocksService(IStocksRepository stocksRepository)
         {
-            _db = stockMarketDbContext;
+            _stocksRepository = stocksRepository;
         }
 
         #endregion
 
         #region Methods
 
-        public Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest)
+        public async Task<BuyOrderResponse> CreateBuyOrder(BuyOrderRequest? buyOrderRequest)
         {
             if (buyOrderRequest == null)
             {
@@ -36,14 +38,12 @@ namespace Services
             BuyOrder buyOrder = buyOrderRequest.ToBuyOrder();
             buyOrder.BuyOrderID = Guid.NewGuid();
 
-            _db.Sp_InsertBuyOrder(buyOrder);
-            //await _db.AddAsync(buyOrder);
-            //await _db.SaveChangesAsync();
+            BuyOrder buyOrderFromRepository = await _stocksRepository.CreateBuyOrder(buyOrder);
 
-            return Task.FromResult(buyOrder.ToBuyOrderResponse());
+            return buyOrder.ToBuyOrderResponse();
         }
 
-        public Task<SellOrderResponse> CreateSellOrder(SellOrderRequest? sellOrderRequest)
+        public async Task<SellOrderResponse> CreateSellOrder(SellOrderRequest? sellOrderRequest)
         {
             if (sellOrderRequest == null)
             {
@@ -54,21 +54,21 @@ namespace Services
             SellOrder sellOrder = sellOrderRequest.ToSellOrder();
             sellOrder.SellOrderID = Guid.NewGuid();
 
-            _db.Sp_InsertSellOrder(sellOrder);
-            //await _db.AddAsync(sellOrder);
-            //await _db.SaveChangesAsync();
+            SellOrder sellOrderFromRepository = await _stocksRepository.CreateSellOrder(sellOrder);
 
-            return Task.FromResult(sellOrder.ToSellOrderResponse());
+            return sellOrder.ToSellOrderResponse();
         }
 
-        public Task<List<BuyOrderResponse>> GetAllBuyOrders()
+        public async Task<List<BuyOrderResponse>> GetAllBuyOrders()
         {
-            return Task.FromResult(_db.Sp_GetAllBuyOrders().Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList());
+            List<BuyOrder> buyOrders = await _stocksRepository.GetBuyOrders();
+            return buyOrders.Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList();
         }
 
-        public Task<List<SellOrderResponse>> GetAllSellOrders()
+        public async Task<List<SellOrderResponse>> GetAllSellOrders()
         {
-            return Task.FromResult(_db.Sp_GetAllSellOrders().Select(sellOrder => sellOrder.ToSellOrderResponse()).ToList());
+            List<SellOrder> sellOrders = await _stocksRepository.GetSellOrders();
+            return sellOrders.Select(sellOrder => sellOrder.ToSellOrderResponse()).ToList();
         }
 
         #endregion

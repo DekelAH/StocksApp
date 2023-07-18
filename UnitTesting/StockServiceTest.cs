@@ -20,7 +20,7 @@ namespace UnitTesting
         public StockServiceTest(ITestOutputHelper testOutputHelper, StockMarketDbContext stockMarketDbContext)
         {
 
-            _stocksService = new StocksService(stockMarketDbContext);
+            _stocksService = new StocksService(null);
             _testOutputHelper = testOutputHelper;
         }
 
