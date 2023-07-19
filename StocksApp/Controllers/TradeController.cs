@@ -37,30 +37,30 @@ namespace StocksApp.Controllers
 
         #region Action Methods
 
-        [Route("[action]")]
-        [Route("/")]
+        [Route("[action]/{stockSymbol}")]
+        [Route("~/[action]/{stockSymbol}")]
         [HttpGet]
-        public async Task<IActionResult> Index(string? stockSymbolSearch)
+        public async Task<IActionResult> Index(string stockSymbol)
         {
-            ViewBag.Token = _token;
-            if (_tradingOptions.Value.DefaultStockSymbol == null)
+            if (string.IsNullOrEmpty(stockSymbol))
             {
-                _tradingOptions.Value.DefaultStockSymbol = "MSFT";
+                stockSymbol = "MSFT";
             }
             if (_tradingOptions.Value.DefaultOrderQuantity == null)
             {
                 _tradingOptions.Value.DefaultOrderQuantity = "100";
             }
 
-            ViewBag.CurrentStockSymbolSearch = stockSymbolSearch;
-            Dictionary<string, object>? stockDetailsDic = await _finnHubService.GetStockPriceQuote(_tradingOptions.Value.DefaultStockSymbol);
-            Dictionary<string, object>? companyProfileDic = await _finnHubService.GetCompanyProfile(_tradingOptions.Value.DefaultStockSymbol);
+            ViewBag.Token = _token;
+            ViewBag.CurrentStockSymbolSearch = stockSymbol;
+            Dictionary<string, object>? stockDetailsDic = await _finnHubService.GetStockPriceQuote(stockSymbol);
+            Dictionary<string, object>? companyProfileDic = await _finnHubService.GetCompanyProfile(stockSymbol);
 
             if (stockDetailsDic != null && companyProfileDic != null)
             {
                 StockTrade stock = new StockTrade()
                 {
-                    StockSymbol = _tradingOptions.Value.DefaultStockSymbol,
+                    StockSymbol = companyProfileDic["ticker"].ToString(),
                     StockName = companyProfileDic["name"].ToString(),
                     Price = Convert.ToDouble(stockDetailsDic["c"].ToString()),
                     Quantity = uint.Parse(_tradingOptions.Value.DefaultOrderQuantity)

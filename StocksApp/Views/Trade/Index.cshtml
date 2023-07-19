@@ -1,5 +1,6 @@
 ﻿@model ServiceContracts.View_Models.StockTrade
 @{
+    ViewBag.Title = "Trade";
     ViewBag.CurrentUrl = "~/trade/index";
 }
 
@@ -85,9 +86,16 @@
             });
         }, 1500);
 
-        if (window.closed) {
-            socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': companySymbol }))
+        // Unsubscribe
+        var unsubscribe = function (symbol) {
+            //disconnect from server
+            socket.send(JSON.stringify({ 'type': 'unsubscribe', 'symbol': symbol }))
         }
+
+        //when the page is being closed, unsubscribe from the WebSocket
+        window.onunload = function () {
+            unsubscribe(companySymbol);
+        };
     }
 
 </script>

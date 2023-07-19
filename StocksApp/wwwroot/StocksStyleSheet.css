@@ -17,6 +17,17 @@
     min-width: 500px;
 }
 
+a.button-link:link, a.button-link:visited {
+    color: #ffffff;
+    padding: 8px 12px;
+    border: 2px solid #cacaca;
+    border-radius: 8px;
+    outline: 3px solid #ffffff;
+    font-size: 130%;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .app-title
 {
     font-size: 1.9em;

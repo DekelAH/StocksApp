@@ -7,12 +7,12 @@ using StocksApp.ServiceContracts;
 
 namespace StocksApp.Controllers
 {
-    [Route("stocks")]
+    [Route("[controller]")]
     public class StocksController : Controller
     {
         #region Fields
 
-        private readonly TradingOptions _options;
+        private readonly IOptions<TradingOptions> _options;
         private readonly IFinnhubService _finnhubService;
         private readonly IStocksService _stocksService;
 
@@ -22,9 +22,9 @@ namespace StocksApp.Controllers
 
         public StocksController(IOptions<TradingOptions> options, IFinnhubService finnhubService, IStocksService stocksService)
         {
-            _options = options.Value;
             _finnhubService = finnhubService;
             _stocksService = stocksService;
+            _options = options;
         }
 
         #endregion
@@ -32,17 +32,17 @@ namespace StocksApp.Controllers
         #region Methods
 
         [Route("[action]/{stockSymbol?}")]
+        [Route("/")]
         [HttpGet]
-        public async Task<IActionResult> Explore(string? stockSymbol)       
-        
+        public async Task<IActionResult> Explore(string? stockSymbol, bool showAll = false)            
         {          
             List<Dictionary<string, object>>? allStocks = await _finnhubService.GetStocks();
             List<Stock> filteredStocks = new List<Stock>();
             if (allStocks != null)
             {
-                if (_options.Top25PopularStocks != null)
+                if (_options.Value.Top25PopularStocks != null && !showAll)
                 {
-                    string[] top25PopularStocksArr = _options.Top25PopularStocks.Split(",");
+                    string[] top25PopularStocksArr = _options.Value.Top25PopularStocks.Split(",");
                     if (top25PopularStocksArr != null)
                     {
                         allStocks = allStocks.Where(stock => top25PopularStocksArr.Contains(stock["symbol"].ToString())).ToList();

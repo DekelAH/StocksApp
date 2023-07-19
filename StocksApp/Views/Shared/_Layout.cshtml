@@ -26,6 +26,14 @@
 
             <div class="navbar mb">
                 <ul>
+                    @if (ViewBag.CurrentUrl == "~/stocks/explore")
+                    {
+                        <li><a asp-controller="Stocks" asp-action="Explore" class="nav-active">Explore</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Stocks" asp-action="Explore">Explore</a></li>
+                    }
                     @if (ViewBag.CurrentUrl == "~/trade/index")
                     {
                         <li><a asp-controller="Trade" asp-action="Index" class="nav-active">Trade</a></li>

@@ -4,11 +4,13 @@ using Repositories;
 using RepositoryContracts;
 using ServiceContracts.Contracts;
 using Services;
+using StocksApp.OptionsModels;
 using StocksApp.ServiceContracts;
 using StocksApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<TradingOptions>(builder.Configuration.GetSection("TradingOptions"));
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IFinnhubService, FinnhubService>();
 builder.Services.AddScoped<IStocksService, StocksService>();
