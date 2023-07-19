@@ -18,6 +18,7 @@
 }
 
 a.button-link:link, a.button-link:visited {
+
     color: #ffffff;
     padding: 8px 12px;
     border: 2px solid #cacaca;
@@ -285,6 +286,11 @@ a.button-link:link, a.button-link:visited {
     clear: both;
 }
 
+#trade-button {
+
+    margin-top: 30px;
+}
+
 .blue-back
 {
     background-color: #9ad3f7;
@@ -302,9 +308,9 @@ a.button-link:link, a.button-link:visited {
     border: 1px solid #ececec;
     border-radius: 8px;
 }
-
 .list > li
 {
+    text-decoration: none;
     padding: 8px 12px;
     background-color: #ffffff;
     margin: 3px 2px;
@@ -355,7 +361,6 @@ a.button-link:link, a.button-link:visited {
 {
     border-right: 1px solid #bfbfbf;
 }
-
 
 .box
 {
