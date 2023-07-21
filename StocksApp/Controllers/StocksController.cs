@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using ServiceContracts.Contracts;
 using ServiceContracts.View_Models;
 using StocksApp.OptionsModels;
 using StocksApp.ServiceContracts;
@@ -14,16 +13,14 @@ namespace StocksApp.Controllers
 
         private readonly IOptions<TradingOptions> _options;
         private readonly IFinnhubService _finnhubService;
-        private readonly IStocksService _stocksService;
 
         #endregion
 
         #region Ctors
 
-        public StocksController(IOptions<TradingOptions> options, IFinnhubService finnhubService, IStocksService stocksService)
+        public StocksController(IOptions<TradingOptions> options, IFinnhubService finnhubService)
         {
             _finnhubService = finnhubService;
-            _stocksService = stocksService;
             _options = options;
         }
 

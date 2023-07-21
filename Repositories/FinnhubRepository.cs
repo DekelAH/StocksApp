@@ -83,7 +83,7 @@ namespace Repositories
             }
         }
 
-        public async Task <List<Dictionary<string, object>>?> GetStocks()
+        public async Task<List<Dictionary<string, object>>?> GetStocks()
         {
             using (HttpClient httpClient = _httpClientFactory.CreateClient())
             {
@@ -97,7 +97,7 @@ namespace Repositories
                 Stream stream = await httpResponseMessage.Content.ReadAsStreamAsync();
                 StreamReader streamReader = new StreamReader(stream);
                 string response = await streamReader.ReadToEndAsync();
-                List<Dictionary<string, object>>? responseDictionaries = JsonSerializer.Deserialize <List<Dictionary<string, object>>>(response);
+                List<Dictionary<string, object>>? responseDictionaries = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(response);
 
                 if (responseDictionaries == null)
                 {

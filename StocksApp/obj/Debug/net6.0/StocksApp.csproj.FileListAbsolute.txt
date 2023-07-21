@@ -92,3 +92,4 @@ D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryCo
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryContracts.pdb
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.pdb
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\appsettings.Test.json
