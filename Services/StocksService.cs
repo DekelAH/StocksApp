@@ -1,6 +1,8 @@
 ﻿using Entities.DbContextModels;
 using Entities.Models;
+using Microsoft.Extensions.Logging;
 using RepositoryContracts;
+using Serilog;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using Services.Helpers;
@@ -13,14 +15,18 @@ namespace Services
         #region Fields
 
         private readonly IStocksRepository _stocksRepository;
+        private readonly ILogger<StocksService> _logger;
+        private readonly IDiagnosticContext _diagnosticContext;
 
         #endregion
 
         #region Ctors
 
-        public StocksService(IStocksRepository stocksRepository)
+        public StocksService(IStocksRepository stocksRepository, ILogger<StocksService> logger, IDiagnosticContext diagnosticContext)
         {
             _stocksRepository = stocksRepository;
+            _logger = logger;
+            _diagnosticContext = diagnosticContext;
         }
 
         #endregion

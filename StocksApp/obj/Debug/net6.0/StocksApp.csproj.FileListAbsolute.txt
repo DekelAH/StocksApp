@@ -82,7 +82,6 @@ D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.As
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.CodeAnalysis.Razor.dll
-D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
@@ -93,3 +92,18 @@ D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\RepositoryCo
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Repositories.pdb
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\appsettings.Test.json
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.Azure.Services.AppAuthentication.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.File.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.MSSqlServer.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Seq.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\SerilogTimings.dll

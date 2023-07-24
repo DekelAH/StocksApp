@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RepositoryContracts;
 using System.Text.Json;
 
@@ -10,15 +11,18 @@ namespace Repositories
 
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<FinnhubRepository> _logger;
 
         #endregion
 
         #region Ctors
 
-        public FinnhubRepository(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public FinnhubRepository(IHttpClientFactory httpClientFactory, IConfiguration configuration,
+            ILogger<FinnhubRepository> logger)
         {
             _httpClientFactory = httpClientFactory;
             _configuration = configuration;
+            _logger = logger;
         }
 
         #endregion
@@ -85,6 +89,7 @@ namespace Repositories
 
         public async Task<List<Dictionary<string, object>>?> GetStocks()
         {
+            _logger.LogInformation("GetStocks method in Finnhub Repository");
             using (HttpClient httpClient = _httpClientFactory.CreateClient())
             {
                 HttpRequestMessage httpRequestMessage = new HttpRequestMessage()

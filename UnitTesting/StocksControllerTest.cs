@@ -1,8 +1,10 @@
 ﻿using AutoFixture;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
+using Serilog;
 using ServiceContracts.View_Models;
 using StocksApp.Controllers;
 using StocksApp.OptionsModels;
@@ -26,7 +28,6 @@ namespace UnitTesting
         public StocksControllerTest()
         {
             _fixture = new Fixture();
-
             _finnhubServiceMock = new Mock<IFinnhubService>();
             _finnhubService = _finnhubServiceMock.Object;
         }
@@ -46,7 +47,7 @@ namespace UnitTesting
               "COST,DIS,KO"
             });
 
-            StocksController stocksController = new StocksController(tradingOptions, _finnhubService);
+            StocksController stocksController = new StocksController(tradingOptions, _finnhubService, null);
 
             List<Dictionary<string, object>>? stocksDict = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Dictionary<string, object>>>
                 (@"[{'currency':'USD','description':'APPLE INC','displaySymbol':'AAPL','figi':'BBG000B9XRY4','isin':null,'mic':'XNAS','shareClassFIGI':'BBG001S5N8V8','symbol':'AAPL','symbol2':'','type':'Common Stock'}, 

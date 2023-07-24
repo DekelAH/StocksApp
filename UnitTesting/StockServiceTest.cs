@@ -1,11 +1,14 @@
 ﻿using AutoFixture;
 using Entities.Models;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using Moq;
 using RepositoryContracts;
+using Serilog;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using Services;
+using StocksApp.Controllers;
 using Xunit.Abstractions;
 
 namespace UnitTesting
@@ -29,7 +32,9 @@ namespace UnitTesting
             _autoFixture = new Fixture();
             _stocksRepositoryMock = new Mock<IStocksRepository>();
             _stocksRepository = _stocksRepositoryMock.Object;
-            _stocksService = new StocksService(_stocksRepository);
+            var logger = new Mock<ILogger<StocksService>>();
+            var diagnosticContext = new Mock<IDiagnosticContext>();
+            _stocksService = new StocksService(_stocksRepository, logger.Object, diagnosticContext.Object);
             _testOutputHelper = testOutputHelper;
         }
 
@@ -456,7 +461,7 @@ namespace UnitTesting
 
 
             List<BuyOrderResponse> buyOrderResponses = buyOrders.Select(buyOrder => buyOrder.ToBuyOrderResponse()).ToList();
-      
+
             _testOutputHelper.WriteLine("Expected:");
             foreach (var buyOrderResponse in buyOrderResponses)
             {

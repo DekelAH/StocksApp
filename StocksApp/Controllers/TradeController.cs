@@ -18,6 +18,8 @@ namespace StocksApp.Controllers
         private readonly IFinnhubService _finnHubService;
         private readonly IStocksService _stocksService;
         private readonly IOptions<TradingOptions> _tradingOptions;
+        private readonly ILogger<StocksController> _logger;
+
         private readonly string? _token;
 
         #endregion
@@ -25,12 +27,14 @@ namespace StocksApp.Controllers
         #region Ctor
 
         public TradeController(IFinnhubService finnHubService, IStocksService stocksService, 
-            IOptions<TradingOptions> tradingOptions, IConfiguration configuration)
+            IOptions<TradingOptions> tradingOptions, IConfiguration configuration, ILogger<StocksController> logger)
         {
             _finnHubService = finnHubService;
             _stocksService = stocksService;
             _tradingOptions = tradingOptions;
             _token = configuration["FinnhubToken"];
+            _logger = logger;
+
         }
 
         #endregion
@@ -42,6 +46,8 @@ namespace StocksApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string stockSymbol)
         {
+            _logger.LogInformation("Index action method in Trade Controller");
+            _logger.LogDebug($"stockSymbol: {stockSymbol}");
             if (string.IsNullOrEmpty(stockSymbol))
             {
                 stockSymbol = "MSFT";

@@ -1,0 +1,175 @@
+2023-07-24 23:23:55.561 +03:00 [INF] User profile is available. Using 'C:\Users\dekel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-24 23:23:55.806 +03:00 [INF] Now listening on: http://localhost:5054
+2023-07-24 23:23:55.813 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-24 23:23:55.816 +03:00 [INF] Hosting environment: Development
+2023-07-24 23:23:55.817 +03:00 [INF] Content root path: D:\Programming\Github Projects\StocksApp\StocksApp\
+2023-07-24 23:23:57.160 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/ - -
+2023-07-24 23:23:57.213 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /
+2023-07-24 23:23:57.248 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:23:57.331 +03:00 [INF] Route matched with {action = "Explore", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Explore(System.String, Boolean) on controller StocksApp.Controllers.StocksController (StocksApp).
+2023-07-24 23:23:57.387 +03:00 [INF] Explore action method in Stocks Controller
+2023-07-24 23:23:57.390 +03:00 [INF] GetStocks method in Finnhub Service
+2023-07-24 23:23:57.393 +03:00 [INF] GetStocks method in Finnhub Repository
+2023-07-24 23:23:57.411 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:23:57.420 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:23:58.430 +03:00 [INF] Received HTTP response headers after 1003.943ms - 200
+2023-07-24 23:23:58.440 +03:00 [INF] End processing HTTP request after 1036.0355ms - 200
+2023-07-24 23:23:59.586 +03:00 [INF] Executing ViewResult, running view Explore.
+2023-07-24 23:23:59.838 +03:00 [INF] Executed ViewResult - view Explore executed in 253.3964ms.
+2023-07-24 23:23:59.846 +03:00 [INF] Executed action StocksApp.Controllers.StocksController.Explore (StocksApp) in 2510.58ms
+2023-07-24 23:23:59.851 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:23:59.854 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+2023-07-24 23:23:59.859 +03:00 [INF] HTTP GET / responded 200 in 2647.4965 ms
+2023-07-24 23:23:59.916 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - -
+2023-07-24 23:23:59.920 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_vs/browserLink - -
+2023-07-24 23:23:59.929 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/ - - - 200 - text/html;+charset=utf-8 2774.9242ms
+2023-07-24 23:23:59.932 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - - - 200 11975 application/javascript;+charset=utf-8 16.7883ms
+2023-07-24 23:23:59.952 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/StocksStyleSheet.css - -
+2023-07-24 23:23:59.954 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /StocksStyleSheet.css
+2023-07-24 23:24:00.001 +03:00 [INF] Sending file. Request path: '/StocksStyleSheet.css'. Physical path: 'D:\Programming\Github Projects\StocksApp\StocksApp\wwwroot\StocksStyleSheet.css'
+2023-07-24 23:24:00.003 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/css
+Date: Mon, 24 Jul 2023 20:23:59 GMT
+Server: Kestrel
+Accept-Ranges: bytes
+ETag: [Redacted]
+Last-Modified: Wed, 19 Jul 2023 11:12:03 GMT
+Content-Length: 8055
+2023-07-24 23:24:00.005 +03:00 [INF] HTTP GET /StocksStyleSheet.css responded 200 in 51.3138 ms
+2023-07-24 23:24:00.009 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/StocksStyleSheet.css - - - 200 8055 text/css 56.9505ms
+2023-07-24 23:24:00.034 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 114.1704ms
+2023-07-24 23:24:00.132 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/favicon.ico - -
+2023-07-24 23:24:00.134 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /favicon.ico
+2023-07-24 23:24:00.140 +03:00 [INF] Response:
+StatusCode: 404
+2023-07-24 23:24:00.142 +03:00 [INF] HTTP GET /favicon.ico responded 404 in 8.3010 ms
+2023-07-24 23:24:00.145 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/favicon.ico - - - 404 0 - 13.3124ms
+2023-07-24 23:24:02.620 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/Stocks/Explore/MSFT - -
+2023-07-24 23:24:02.623 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /Stocks/Explore/MSFT
+2023-07-24 23:24:02.627 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:24:02.633 +03:00 [INF] Route matched with {action = "Explore", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Explore(System.String, Boolean) on controller StocksApp.Controllers.StocksController (StocksApp).
+2023-07-24 23:24:02.639 +03:00 [INF] Explore action method in Stocks Controller
+2023-07-24 23:24:02.640 +03:00 [INF] GetStocks method in Finnhub Service
+2023-07-24 23:24:02.643 +03:00 [INF] GetStocks method in Finnhub Repository
+2023-07-24 23:24:02.645 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:02.646 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:03.267 +03:00 [INF] Received HTTP response headers after 618.4533ms - 200
+2023-07-24 23:24:03.271 +03:00 [INF] End processing HTTP request after 625.9808ms - 200
+2023-07-24 23:24:04.342 +03:00 [INF] Executing ViewResult, running view Explore.
+2023-07-24 23:24:05.448 +03:00 [INF] GetCompanyProfile method in Finnhub Service
+2023-07-24 23:24:05.452 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:05.455 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:06.027 +03:00 [INF] Received HTTP response headers after 569.8027ms - 200
+2023-07-24 23:24:06.031 +03:00 [INF] End processing HTTP request after 578.7461ms - 200
+2023-07-24 23:24:06.034 +03:00 [INF] GetStockPriceQuote method in Finnhub Service
+2023-07-24 23:24:06.036 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:06.038 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:06.199 +03:00 [INF] Received HTTP response headers after 159.4084ms - 200
+2023-07-24 23:24:06.203 +03:00 [INF] End processing HTTP request after 166.6593ms - 200
+2023-07-24 23:24:06.227 +03:00 [INF] Executed ViewResult - view Explore executed in 1885.1668ms.
+2023-07-24 23:24:06.228 +03:00 [INF] Executed action StocksApp.Controllers.StocksController.Explore (StocksApp) in 3590.2572ms
+2023-07-24 23:24:06.229 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:24:06.231 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+2023-07-24 23:24:06.232 +03:00 [INF] HTTP GET /Stocks/Explore/MSFT responded 200 in 3609.0690 ms
+2023-07-24 23:24:06.242 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/Stocks/Explore/MSFT - - - 200 - text/html;+charset=utf-8 3621.6417ms
+2023-07-24 23:24:06.252 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_vs/browserLink - -
+2023-07-24 23:24:06.259 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - -
+2023-07-24 23:24:06.263 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - - - 200 11975 application/javascript;+charset=utf-8 3.1123ms
+2023-07-24 23:24:06.264 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.8842ms
+2023-07-24 23:24:12.088 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/Trade/Index/MSFT - -
+2023-07-24 23:24:12.091 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /Trade/Index/MSFT
+2023-07-24 23:24:12.095 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-24 23:24:12.100 +03:00 [INF] Route matched with {action = "Index", controller = "Trade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller StocksApp.Controllers.TradeController (StocksApp).
+2023-07-24 23:24:12.133 +03:00 [INF] Index action method in Trade Controller
+2023-07-24 23:24:12.140 +03:00 [INF] GetStockPriceQuote method in Finnhub Service
+2023-07-24 23:24:12.142 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:12.144 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:12.303 +03:00 [INF] Received HTTP response headers after 155.8287ms - 200
+2023-07-24 23:24:12.305 +03:00 [INF] End processing HTTP request after 163.2897ms - 200
+2023-07-24 23:24:12.309 +03:00 [INF] GetCompanyProfile method in Finnhub Service
+2023-07-24 23:24:12.310 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:12.313 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:24:12.476 +03:00 [INF] Received HTTP response headers after 160.0708ms - 200
+2023-07-24 23:24:12.480 +03:00 [INF] End processing HTTP request after 169.6054ms - 200
+2023-07-24 23:24:12.485 +03:00 [INF] Executing ViewResult, running view Index.
+2023-07-24 23:24:12.520 +03:00 [INF] Executed ViewResult - view Index executed in 35.9483ms.
+2023-07-24 23:24:12.523 +03:00 [INF] Executed action StocksApp.Controllers.TradeController.Index (StocksApp) in 419.0877ms
+2023-07-24 23:24:12.526 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-24 23:24:12.528 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+Cache-Control: [Redacted]
+Pragma: [Redacted]
+Set-Cookie: [Redacted]
+X-Frame-Options: [Redacted]
+2023-07-24 23:24:12.530 +03:00 [INF] HTTP GET /Trade/Index/MSFT responded 200 in 438.3194 ms
+2023-07-24 23:24:12.535 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/Trade/Index/MSFT - - - 200 - text/html;+charset=utf-8 446.9232ms
+2023-07-24 23:24:12.547 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_vs/browserLink - -
+2023-07-24 23:24:12.548 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - -
+2023-07-24 23:24:12.551 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - - - 200 11975 application/javascript;+charset=utf-8 2.3814ms
+2023-07-24 23:24:12.558 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 10.6967ms
+2023-07-24 23:30:10.891 +03:00 [INF] User profile is available. Using 'C:\Users\dekel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-24 23:30:11.117 +03:00 [INF] Now listening on: http://localhost:5054
+2023-07-24 23:30:11.125 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-07-24 23:30:11.126 +03:00 [INF] Hosting environment: Development
+2023-07-24 23:30:11.128 +03:00 [INF] Content root path: D:\Programming\Github Projects\StocksApp\StocksApp\
+2023-07-24 23:30:12.284 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/ - -
+2023-07-24 23:30:12.339 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /
+2023-07-24 23:30:12.375 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:30:12.439 +03:00 [INF] Route matched with {action = "Explore", controller = "Stocks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Explore(System.String, Boolean) on controller StocksApp.Controllers.StocksController (StocksApp).
+2023-07-24 23:30:12.482 +03:00 [INF] Explore action method in Stocks Controller
+2023-07-24 23:30:12.485 +03:00 [INF] GetStocks method in Finnhub Service
+2023-07-24 23:30:12.487 +03:00 [INF] GetStocks method in Finnhub Repository
+2023-07-24 23:30:12.507 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:30:12.516 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/symbol?exchange=US&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-24 23:30:13.426 +03:00 [INF] Received HTTP response headers after 903.5002ms - 200
+2023-07-24 23:30:13.438 +03:00 [INF] End processing HTTP request after 939.1892ms - 200
+2023-07-24 23:30:14.379 +03:00 [INF] Time for Getting Stocks from Finnhub completed in 1893.2 ms
+2023-07-24 23:30:14.465 +03:00 [INF] Executing ViewResult, running view Explore.
+2023-07-24 23:30:14.675 +03:00 [INF] Executed ViewResult - view Explore executed in 208.7646ms.
+2023-07-24 23:30:14.683 +03:00 [INF] Executed action StocksApp.Controllers.StocksController.Explore (StocksApp) in 2240.9627ms
+2023-07-24 23:30:14.686 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.StocksController.Explore (StocksApp)'
+2023-07-24 23:30:14.688 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+2023-07-24 23:30:14.694 +03:00 [INF] HTTP GET / responded 200 in 2357.5243 ms
+2023-07-24 23:30:14.736 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_vs/browserLink - -
+2023-07-24 23:30:14.739 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/ - - - 200 - text/html;+charset=utf-8 2460.5175ms
+2023-07-24 23:30:14.757 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - -
+2023-07-24 23:30:14.764 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_framework/aspnetcore-browser-refresh.js - - - 200 11975 application/javascript;+charset=utf-8 6.5860ms
+2023-07-24 23:30:14.783 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5054/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.8077ms
