@@ -478,3 +478,4 @@ D:\Programming\Github Projects\StocksApp\UnitTesting\bin\Debug\net6.0\Serilog.Si
 D:\Programming\Github Projects\StocksApp\UnitTesting\bin\Debug\net6.0\Serilog.Sinks.MSSqlServer.dll
 D:\Programming\Github Projects\StocksApp\UnitTesting\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
 D:\Programming\Github Projects\StocksApp\UnitTesting\bin\Debug\net6.0\Serilog.Sinks.Seq.dll
+D:\Programming\Github Projects\StocksApp\UnitTesting\bin\Debug\net6.0\SerilogTimings.dll

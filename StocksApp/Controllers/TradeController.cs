@@ -5,6 +5,7 @@ using Rotativa.AspNetCore;
 using ServiceContracts.Contracts;
 using ServiceContracts.DTO;
 using ServiceContracts.View_Models;
+using StocksApp.Filters.ActionFilters;
 using StocksApp.OptionsModels;
 using StocksApp.ServiceContracts;
 
@@ -80,7 +81,8 @@ namespace StocksApp.Controllers
 
         [Route("[action]")]
         [HttpPost]
-        public async Task<IActionResult> BuyOrder(BuyOrderRequest buyOrderRequest)
+        [TypeFilter(typeof(CreateOrderActionFilter))]
+        public async Task<IActionResult> BuyOrder(BuyOrderRequest orderRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -88,23 +90,24 @@ namespace StocksApp.Controllers
 
                 StockTrade stock = new StockTrade()
                 {
-                    StockSymbol = buyOrderRequest.StockSymbol,
-                    StockName = buyOrderRequest.StockName,
-                    Price = buyOrderRequest.Price,
-                    Quantity = buyOrderRequest.Quantity
+                    StockSymbol = orderRequest.StockSymbol,
+                    StockName = orderRequest.StockName,
+                    Price = orderRequest.Price,
+                    Quantity = orderRequest.Quantity
                 };
                 return View("Index", stock);
             }
 
-            buyOrderRequest.DateAndTimeOfOrder = DateTime.Now;
-            BuyOrderResponse buyOrderResponse = await _stocksService.CreateBuyOrder(buyOrderRequest);
+            orderRequest.DateAndTimeOfOrder = DateTime.Now;
+            BuyOrderResponse buyOrderResponse = await _stocksService.CreateBuyOrder(orderRequest);
 
             return RedirectToAction("Orders");
         }
 
         [Route("[action]")]
         [HttpPost]
-        public async Task<IActionResult> SellOrder(SellOrderRequest sellOrderRequest)
+        [TypeFilter(typeof(CreateOrderActionFilter))]
+        public async Task<IActionResult> SellOrder(SellOrderRequest orderRequest)
         {
             if (!ModelState.IsValid)
             {
@@ -112,16 +115,16 @@ namespace StocksApp.Controllers
 
                 StockTrade stock = new StockTrade()
                 {
-                    StockSymbol = sellOrderRequest.StockSymbol,
-                    StockName = sellOrderRequest.StockName,
-                    Price = sellOrderRequest.Price,
-                    Quantity = sellOrderRequest.Quantity
+                    StockSymbol = orderRequest.StockSymbol,
+                    StockName = orderRequest.StockName,
+                    Price = orderRequest.Price,
+                    Quantity = orderRequest.Quantity
                 };
                 return View("Index", stock);
             }
 
-            sellOrderRequest.DateAndTimeOfOrder = DateTime.Now;
-            SellOrderResponse sellOrderResponse = await _stocksService.CreateSellOrder(sellOrderRequest);
+            orderRequest.DateAndTimeOfOrder = DateTime.Now;
+            SellOrderResponse sellOrderResponse = await _stocksService.CreateSellOrder(orderRequest);
 
             return RedirectToAction("Orders");
         }
