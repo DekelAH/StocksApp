@@ -13,19 +13,18 @@ builder.Services.ConfigureServices(builder.Configuration);
 
 var app = builder.Build();
 
-app.UseSerilogRequestLogging();
 if (builder.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-else 
-{ 
+else
+{
     app.UseExceptionHandler("/Error");
-    app.UseMiddleware<ExceptionHandlingMiddleware>();
+    app.UseExceptionHandlingMiddleware();
 }
 
+app.UseSerilogRequestLogging();
 app.UseHttpLogging();
-
 if (app.Environment.IsEnvironment("Test") == false)
 {
     Rotativa.AspNetCore.RotativaConfiguration.Setup("wwwroot", wkhtmltopdfRelativePath: "Rotativa");

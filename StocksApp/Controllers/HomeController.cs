@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StocksApp.Controllers
 {
-    public class ErrorController : Controller
+    public class HomeController : Controller
     {
         [Route("Error")]
         public IActionResult Error()

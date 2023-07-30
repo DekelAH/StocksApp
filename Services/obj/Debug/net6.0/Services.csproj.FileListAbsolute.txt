@@ -17,3 +17,5 @@ D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\Entities.dll
 D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\Entities.pdb
 D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\RepositoryContracts.dll
 D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\RepositoryContracts.pdb
+D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\Exceptions.dll
+D:\Programming\Github Projects\StocksApp\Services\bin\Debug\net6.0\Exceptions.pdb

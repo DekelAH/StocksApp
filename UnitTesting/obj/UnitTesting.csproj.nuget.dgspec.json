@@ -337,6 +337,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj": {
+                "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj"
+              },
               "D:\\Programming\\Github Projects\\StocksApp\\RepositoryContracts\\RepositoryContracts.csproj": {
                 "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\RepositoryContracts\\RepositoryContracts.csproj"
               },

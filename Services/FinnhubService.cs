@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Exceptions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RepositoryContracts;
 using Serilog;
@@ -35,36 +36,74 @@ namespace StocksApp.Services
 
         public async Task<Dictionary<string, object>?> GetCompanyProfile(string stockSymbol)
         {
-            _logger.LogInformation("GetCompanyProfile method in Finnhub Service");
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetCompanyProfile(stockSymbol);
-            _diagnosticContext.Set("CompanyProfile", responseDictionary);
-            return responseDictionary;
+            try
+            {
+                _logger.LogInformation("GetCompanyProfile method in Finnhub Service");
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetCompanyProfile(stockSymbol);
+                _diagnosticContext.Set("CompanyProfile", responseDictionary);
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubExceptionHandler finnhubExceptionHandler =
+                                    new FinnhubExceptionHandler("Unable to connect to Finnhub service", ex);
+                throw finnhubExceptionHandler;
+            }
         }
 
         public async Task<Dictionary<string, object>?> GetStockPriceQuote(string stockSymbol)
         {
-            _logger.LogInformation("GetStockPriceQuote method in Finnhub Service");
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetStockPriceQuote(stockSymbol);
-            _diagnosticContext.Set("StockPriceQuote", responseDictionary);
-            return responseDictionary;
+            try
+            {
+                _logger.LogInformation("GetStockPriceQuote method in Finnhub Service");
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.GetStockPriceQuote(stockSymbol);
+                _diagnosticContext.Set("StockPriceQuote", responseDictionary);
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubExceptionHandler finnhubExceptionHandler =
+                    new FinnhubExceptionHandler("Unable to connect to Finnhub service", ex);
+                throw finnhubExceptionHandler;
+            }
+            
         }
 
         public async Task<List<Dictionary<string, object>>?> GetStocks()
         {
-            List<Dictionary<string, object>>? responseDictionary;
-            using (Operation.Time("Time for Getting Stocks from Finnhub"))
+            try
             {
-                _logger.LogInformation("GetStocks method in Finnhub Service");
-                responseDictionary = await _finnhubRepository.GetStocks();
-                _diagnosticContext.Set("Stocks", responseDictionary);
+                List<Dictionary<string, object>>? responseDictionary;
+                using (Operation.Time("Time for Getting Stocks from Finnhub"))
+                {
+                    _logger.LogInformation("GetStocks method in Finnhub Service");
+                    responseDictionary = await _finnhubRepository.GetStocks();
+                    _diagnosticContext.Set("Stocks", responseDictionary);
+                }
+                return responseDictionary;
             }
-            return responseDictionary;
+            catch (Exception ex)
+            {
+                FinnhubExceptionHandler finnhubExceptionHandler =
+                    new FinnhubExceptionHandler("Unable to connect to Finnhub service", ex);
+                throw finnhubExceptionHandler;
+            }
         }
 
         public async Task<Dictionary<string, object>?> SearchStocks(string stockSymbolToSearch)
         {
-            Dictionary<string, object>? responseDictionary = await _finnhubRepository.SearchStocks(stockSymbolToSearch);
-            return responseDictionary;
+            try
+            {
+                Dictionary<string, object>? responseDictionary = await _finnhubRepository.SearchStocks(stockSymbolToSearch);
+                return responseDictionary;
+            }
+            catch (Exception ex)
+            {
+                FinnhubExceptionHandler finnhubExceptionHandler = 
+                    new FinnhubExceptionHandler("Unable to connect to Finnhub service", ex);
+                throw finnhubExceptionHandler;
+            }
+            
         }
 
         #endregion

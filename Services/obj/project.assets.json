@@ -878,6 +878,16 @@
           "bin/placeholder/Entities.dll": {}
         }
       },
+      "Exceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Exceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Exceptions.dll": {}
+        }
+      },
       "RepositoryContracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2254,6 +2264,11 @@
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
     },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../Exceptions/Exceptions.csproj",
+      "msbuildProject": "../Exceptions/Exceptions.csproj"
+    },
     "RepositoryContracts/1.0.0": {
       "type": "project",
       "path": "../RepositoryContracts/RepositoryContracts.csproj",
@@ -2267,6 +2282,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Exceptions >= 1.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 7.0.0",
       "Microsoft.Extensions.Http >= 7.0.0",
       "RepositoryContracts >= 1.0.0",
@@ -2302,6 +2318,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj": {
+              "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj"
+            },
             "D:\\Programming\\Github Projects\\StocksApp\\RepositoryContracts\\RepositoryContracts.csproj": {
               "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\RepositoryContracts\\RepositoryContracts.csproj"
             },

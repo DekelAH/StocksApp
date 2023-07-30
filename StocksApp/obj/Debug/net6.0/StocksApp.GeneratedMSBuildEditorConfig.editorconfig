@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Programming\Github Projects\StocksApp\StocksApp
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Programming/Github Projects/StocksApp/StocksApp/Views/Error/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3IuY3NodG1s
+[D:/Programming/Github Projects/StocksApp/StocksApp/Views/Home/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Programming/Github Projects/StocksApp/StocksApp/Views/Shared/Components/SelectedStock/Default.cshtml]
