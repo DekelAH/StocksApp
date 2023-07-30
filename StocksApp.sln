@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryContracts", "Repo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{3AE295A7-B293-4CB3-933D-2BB81460CB9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{45D635CC-8C01-459A-9C5A-41FA0741A7CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3AE295A7-B293-4CB3-933D-2BB81460CB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE295A7-B293-4CB3-933D-2BB81460CB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE295A7-B293-4CB3-933D-2BB81460CB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45D635CC-8C01-459A-9C5A-41FA0741A7CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D635CC-8C01-459A-9C5A-41FA0741A7CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D635CC-8C01-459A-9C5A-41FA0741A7CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D635CC-8C01-459A-9C5A-41FA0741A7CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

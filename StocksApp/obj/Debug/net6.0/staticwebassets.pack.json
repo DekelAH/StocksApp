@@ -9,6 +9,22 @@
       "PackagePath": "staticwebassets\\StocksStyleSheet.css"
     },
     {
+      "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\cdnjs.cloudflare.com_ajax_libs_jquery-validate_1.19.4_jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\cdnjs.cloudflare.com_ajax_libs_jquery-validate_1.19.4_jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\cdnjs.cloudflare.com_ajax_libs_jquery-validation-unobtrusive_3.2.12_jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\cdnjs.cloudflare.com_ajax_libs_jquery-validation-unobtrusive_3.2.12_jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\cdnjs.cloudflare.com_ajax_libs_jquery_3.6.0_jquery.min.js",
+      "PackagePath": "staticwebassets\\cdnjs.cloudflare.com_ajax_libs_jquery_3.6.0_jquery.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Github Projects\\StocksApp\\StocksApp\\wwwroot\\error.svg",
+      "PackagePath": "staticwebassets\\error.svg"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.StocksApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

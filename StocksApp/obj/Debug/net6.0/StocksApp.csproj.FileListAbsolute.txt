@@ -107,3 +107,5 @@ D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sink
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Serilog.Sinks.Seq.dll
 D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\SerilogTimings.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Exceptions.dll
+D:\Programming\Github Projects\StocksApp\StocksApp\bin\Debug\net6.0\Exceptions.pdb

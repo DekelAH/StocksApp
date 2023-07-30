@@ -1,5 +1,6 @@
 {
   "Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\Github Projects\\StocksApp\\Entities",
+  "Exceptions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\Github Projects\\StocksApp\\Exceptions",
   "Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\Github Projects\\StocksApp\\Repositories",
   "RepositoryContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\Github Projects\\StocksApp\\RepositoryContracts",
   "ServiceContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\Programming\\Github Projects\\StocksApp\\ServiceContracts",

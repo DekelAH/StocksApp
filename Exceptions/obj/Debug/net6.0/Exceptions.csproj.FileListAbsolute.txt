@@ -1,0 +1,12 @@
+D:\Programming\Github Projects\StocksApp\Exceptions\bin\Debug\net6.0\Exceptions.deps.json
+D:\Programming\Github Projects\StocksApp\Exceptions\bin\Debug\net6.0\Exceptions.dll
+D:\Programming\Github Projects\StocksApp\Exceptions\bin\Debug\net6.0\Exceptions.pdb
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.csproj.AssemblyReference.cache
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.AssemblyInfoInputs.cache
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.AssemblyInfo.cs
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.csproj.CoreCompileInputs.cache
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.dll
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\refint\Exceptions.dll
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\Exceptions.pdb
+D:\Programming\Github Projects\StocksApp\Exceptions\obj\Debug\net6.0\ref\Exceptions.dll

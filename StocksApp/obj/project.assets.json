@@ -3940,6 +3940,16 @@
           "bin/placeholder/Entities.dll": {}
         }
       },
+      "Exceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Exceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Exceptions.dll": {}
+        }
+      },
       "Repositories/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10734,6 +10744,11 @@
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
     },
+    "Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../Exceptions/Exceptions.csproj",
+      "msbuildProject": "../Exceptions/Exceptions.csproj"
+    },
     "Repositories/1.0.0": {
       "type": "project",
       "path": "../Repositories/Repositories.csproj",
@@ -10758,6 +10773,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Entities >= 1.0.0",
+      "Exceptions >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.5",
       "Repositories >= 1.0.0",
@@ -10799,6 +10815,9 @@
           "projectReferences": {
             "D:\\Programming\\Github Projects\\StocksApp\\Entities\\Entities.csproj": {
               "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\Entities\\Entities.csproj"
+            },
+            "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj": {
+              "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\Exceptions\\Exceptions.csproj"
             },
             "D:\\Programming\\Github Projects\\StocksApp\\Repositories\\Repositories.csproj": {
               "projectPath": "D:\\Programming\\Github Projects\\StocksApp\\Repositories\\Repositories.csproj"

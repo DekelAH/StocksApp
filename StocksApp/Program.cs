@@ -1,5 +1,6 @@
 using Serilog;
 using StocksApp;
+using StocksApp.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,16 @@ builder.Services.ConfigureServices(builder.Configuration);
 var app = builder.Build();
 
 app.UseSerilogRequestLogging();
+if (builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else 
+{ 
+    app.UseExceptionHandler("/Error");
+    app.UseMiddleware<ExceptionHandlingMiddleware>();
+}
+
 app.UseHttpLogging();
 
 if (app.Environment.IsEnvironment("Test") == false)
