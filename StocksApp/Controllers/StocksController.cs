@@ -12,17 +12,17 @@ namespace StocksApp.Controllers
         #region Fields
 
         private readonly IOptions<TradingOptions> _options;
-        private readonly IFinnhubService _finnhubService;
+        private readonly IFinnhubGetterService _finnhubGetterService;
         private readonly ILogger<StocksController> _logger;
 
         #endregion
 
         #region Ctors
 
-        public StocksController(IOptions<TradingOptions> options, IFinnhubService finnhubService,
+        public StocksController(IOptions<TradingOptions> options, IFinnhubGetterService finnhubGetterService,
             ILogger<StocksController> logger)
         {
-            _finnhubService = finnhubService;
+            _finnhubGetterService = finnhubGetterService;
             _options = options;
             _logger = logger;
         }
@@ -39,7 +39,7 @@ namespace StocksApp.Controllers
             _logger.LogInformation("Explore action method in Stocks Controller");
             _logger.LogDebug($"stockSymbol:{stockSymbol}, showAll:{showAll}");
 
-            List<Dictionary<string, object>>? allStocks = await _finnhubService.GetStocks();
+            List<Dictionary<string, object>>? allStocks = await _finnhubGetterService.GetStocks();
             List<Stock> filteredStocks = new List<Stock>();
             if (allStocks != null)
             {

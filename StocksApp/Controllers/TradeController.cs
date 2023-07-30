@@ -1,5 +1,4 @@
-﻿using Entities.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Rotativa.AspNetCore;
 using ServiceContracts.Contracts;
@@ -16,8 +15,12 @@ namespace StocksApp.Controllers
     {
         #region Fields
 
-        private readonly IFinnhubService _finnHubService;
-        private readonly IStocksService _stocksService;
+        private readonly IFinnhubSearcherService _finnHubSearcherService;
+        private readonly IFinnhubGetterService _finnHubGetterService;
+
+        private readonly IStocksGetterService _stocksGetterService;
+        private readonly IStocksCreaterService _stocksCreaterService;
+
         private readonly IOptions<TradingOptions> _tradingOptions;
         private readonly ILogger<StocksController> _logger;
 
@@ -27,15 +30,22 @@ namespace StocksApp.Controllers
 
         #region Ctor
 
-        public TradeController(IFinnhubService finnHubService, IStocksService stocksService, 
-            IOptions<TradingOptions> tradingOptions, IConfiguration configuration, ILogger<StocksController> logger)
+        public TradeController(
+            IFinnhubGetterService finnhubGetterService, 
+            IFinnhubSearcherService finnhubSearcherService, 
+            IStocksGetterService stocksGetterService, 
+            IStocksCreaterService stocksCreaterService, 
+            IOptions<TradingOptions> tradingOptions, 
+            IConfiguration configuration, 
+            ILogger<StocksController> logger)
         {
-            _finnHubService = finnHubService;
-            _stocksService = stocksService;
+            _finnHubGetterService = finnhubGetterService;
+            _finnHubSearcherService = finnhubSearcherService;
+            _stocksGetterService = stocksGetterService;
+            _stocksCreaterService = stocksCreaterService;
             _tradingOptions = tradingOptions;
             _token = configuration["FinnhubToken"];
             _logger = logger;
-
         }
 
         #endregion
@@ -60,8 +70,8 @@ namespace StocksApp.Controllers
 
             ViewBag.Token = _token;
             ViewBag.CurrentStockSymbolSearch = stockSymbol;
-            Dictionary<string, object>? stockDetailsDic = await _finnHubService.GetStockPriceQuote(stockSymbol);
-            Dictionary<string, object>? companyProfileDic = await _finnHubService.GetCompanyProfile(stockSymbol);
+            Dictionary<string, object>? stockDetailsDic = await _finnHubGetterService.GetStockPriceQuote(stockSymbol);
+            Dictionary<string, object>? companyProfileDic = await _finnHubGetterService.GetCompanyProfile(stockSymbol);
 
             if (stockDetailsDic != null && companyProfileDic != null)
             {
@@ -99,7 +109,7 @@ namespace StocksApp.Controllers
             }
 
             orderRequest.DateAndTimeOfOrder = DateTime.Now;
-            BuyOrderResponse buyOrderResponse = await _stocksService.CreateBuyOrder(orderRequest);
+            BuyOrderResponse buyOrderResponse = await _stocksCreaterService.CreateBuyOrder(orderRequest);
 
             return RedirectToAction("Orders");
         }
@@ -124,7 +134,7 @@ namespace StocksApp.Controllers
             }
 
             orderRequest.DateAndTimeOfOrder = DateTime.Now;
-            SellOrderResponse sellOrderResponse = await _stocksService.CreateSellOrder(orderRequest);
+            SellOrderResponse sellOrderResponse = await _stocksCreaterService.CreateSellOrder(orderRequest);
 
             return RedirectToAction("Orders");
         }
@@ -135,8 +145,8 @@ namespace StocksApp.Controllers
         {
             Orders orders = new()
             {
-                BuyOrders = await _stocksService.GetAllBuyOrders(),
-                SellOrders = await _stocksService.GetAllSellOrders(),
+                BuyOrders = await _stocksGetterService.GetAllBuyOrders(),
+                SellOrders = await _stocksGetterService.GetAllSellOrders(),
             };
 
             return View(orders);
@@ -146,8 +156,8 @@ namespace StocksApp.Controllers
         public async Task<IActionResult> OrdersPDF()
         {
             List<IOrderResponse> orders = new();
-            orders.AddRange(await _stocksService.GetAllBuyOrders());
-            orders.AddRange(await _stocksService.GetAllSellOrders());
+            orders.AddRange(await _stocksGetterService.GetAllBuyOrders());
+            orders.AddRange(await _stocksGetterService.GetAllSellOrders());
             orders = orders.OrderByDescending(order => order.DateAndTimeOfOrder).ToList();
 
             return new ViewAsPdf("OrdersPDF", orders, ViewData)

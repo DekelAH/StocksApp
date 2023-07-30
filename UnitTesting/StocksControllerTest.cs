@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
-using Serilog;
+using Serilog.Core;
 using ServiceContracts.View_Models;
 using StocksApp.Controllers;
 using StocksApp.OptionsModels;
@@ -16,9 +16,10 @@ namespace UnitTesting
     {
         #region Fields
 
-        private readonly IFinnhubService _finnhubService;
-        private readonly Mock<IFinnhubService> _finnhubServiceMock;
-
+        private readonly ILogger<StocksController> _logger;
+        private readonly IFinnhubGetterService _finnhubGetterService;
+        private readonly Mock<IFinnhubGetterService> _finnhubGetterServiceMock;
+        private readonly Mock<ILogger<StocksController>> _loggerMock;
         private readonly IFixture _fixture;
 
         #endregion
@@ -28,8 +29,10 @@ namespace UnitTesting
         public StocksControllerTest()
         {
             _fixture = new Fixture();
-            _finnhubServiceMock = new Mock<IFinnhubService>();
-            _finnhubService = _finnhubServiceMock.Object;
+            _loggerMock = new Mock<ILogger<StocksController>>();
+            _finnhubGetterServiceMock = new Mock<IFinnhubGetterService>();
+            _finnhubGetterService = _finnhubGetterServiceMock.Object;
+            _logger = _loggerMock.Object;
         }
 
         #endregion
@@ -47,7 +50,7 @@ namespace UnitTesting
               "COST,DIS,KO"
             });
 
-            StocksController stocksController = new StocksController(tradingOptions, _finnhubService, null);
+            StocksController stocksController = new StocksController(tradingOptions, _finnhubGetterService, _logger);
 
             List<Dictionary<string, object>>? stocksDict = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Dictionary<string, object>>>
                 (@"[{'currency':'USD','description':'APPLE INC','displaySymbol':'AAPL','figi':'BBG000B9XRY4','isin':null,'mic':'XNAS','shareClassFIGI':'BBG001S5N8V8','symbol':'AAPL','symbol2':'','type':'Common Stock'}, 
@@ -56,7 +59,7 @@ namespace UnitTesting
                     {'currency':'USD','description':'TESLA INC','displaySymbol':'TSLA','figi':'BBG000N9MNX3','isin':null,'mic':'XNAS','shareClassFIGI':'BBG001SQKGD7','symbol':'TSLA','symbol2':'','type':'Common Stock'}, 
                     {'currency':'USD','description':'ALPHABET INC-CL A','displaySymbol':'GOOGL','figi':'BBG009S39JX6','isin':null,'mic':'XNAS','shareClassFIGI':'BBG009S39JY5','symbol':'GOOGL','symbol2':'','type':'Common Stock'}]");
 
-            _finnhubServiceMock.Setup(method => method.GetStocks()).ReturnsAsync(stocksDict);
+            _finnhubGetterServiceMock.Setup(method => method.GetStocks()).ReturnsAsync(stocksDict);
 
             var expectedStocks = stocksDict!
               .Select(temp => new Stock() { StockName = Convert.ToString(temp["description"]), StockSymbol = Convert.ToString(temp["symbol"]) })

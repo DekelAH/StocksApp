@@ -1,0 +1,68 @@
+2023-07-31 01:12:22.859 +03:00 [INF] User profile is available. Using 'C:\Users\dekel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-31 01:12:22.964 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost/Trade/Index/MSFT - -
+2023-07-31 01:12:22.973 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /Trade/Index/MSFT
+2023-07-31 01:12:23.001 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-31 01:12:23.036 +03:00 [INF] Route matched with {action = "Index", controller = "Trade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller StocksApp.Controllers.TradeController (StocksApp).
+2023-07-31 01:12:23.171 +03:00 [INF] Index action method in Trade Controller
+2023-07-31 01:12:23.207 +03:00 [INF] GetStockPriceQuote method in Finnhub Service
+2023-07-31 01:12:23.219 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:12:23.222 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:12:23.703 +03:00 [INF] Received HTTP response headers after 477.7878ms - 200
+2023-07-31 01:12:23.706 +03:00 [INF] End processing HTTP request after 492.1705ms - 200
+2023-07-31 01:12:23.710 +03:00 [INF] GetCompanyProfile method in Finnhub Service
+2023-07-31 01:12:23.718 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:12:23.718 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:12:23.888 +03:00 [INF] Received HTTP response headers after 170.3753ms - 200
+2023-07-31 01:12:23.889 +03:00 [INF] End processing HTTP request after 170.9837ms - 200
+2023-07-31 01:12:23.901 +03:00 [INF] Executing ViewResult, running view Index.
+2023-07-31 01:12:24.011 +03:00 [INF] Executed ViewResult - view Index executed in 109.5256ms.
+2023-07-31 01:12:24.013 +03:00 [INF] Executed action StocksApp.Controllers.TradeController.Index (StocksApp) in 975.3369ms
+2023-07-31 01:12:24.013 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-31 01:12:24.014 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+Set-Cookie: [Redacted]
+X-Frame-Options: [Redacted]
+Cache-Control: [Redacted]
+Pragma: [Redacted]
+2023-07-31 01:12:24.016 +03:00 [INF] HTTP GET /Trade/Index/MSFT responded 200 in 1045.5193 ms
+2023-07-31 01:12:24.022 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost/Trade/Index/MSFT - - - 200 - text/html;+charset=utf-8 1063.2138ms
+2023-07-31 01:16:35.926 +03:00 [INF] User profile is available. Using 'C:\Users\dekel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-07-31 01:16:36.034 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost/Trade/Index/MSFT - -
+2023-07-31 01:16:36.044 +03:00 [INF] Request:
+Protocol: HTTP/1.1
+Method: GET
+Scheme: http
+PathBase: 
+Path: /Trade/Index/MSFT
+2023-07-31 01:16:36.073 +03:00 [INF] Executing endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-31 01:16:36.114 +03:00 [INF] Route matched with {action = "Index", controller = "Trade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String) on controller StocksApp.Controllers.TradeController (StocksApp).
+2023-07-31 01:16:36.254 +03:00 [INF] Index action method in Trade Controller
+2023-07-31 01:16:36.261 +03:00 [INF] GetStockPriceQuote method in Finnhub Service
+2023-07-31 01:16:36.276 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:16:36.279 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/quote?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:16:36.689 +03:00 [INF] Received HTTP response headers after 405.7273ms - 200
+2023-07-31 01:16:36.691 +03:00 [INF] End processing HTTP request after 421.0517ms - 200
+2023-07-31 01:16:36.696 +03:00 [INF] GetCompanyProfile method in Finnhub Service
+2023-07-31 01:16:36.697 +03:00 [INF] Start processing HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:16:36.706 +03:00 [INF] Sending HTTP request GET https://finnhub.io/api/v1/stock/profile2?symbol=MSFT&token=ci5ktvpr01qrqj560560ci5ktvpr01qrqj56056g
+2023-07-31 01:16:36.903 +03:00 [INF] Received HTTP response headers after 196.2881ms - 200
+2023-07-31 01:16:36.903 +03:00 [INF] End processing HTTP request after 205.6167ms - 200
+2023-07-31 01:16:36.918 +03:00 [INF] Executing ViewResult, running view Index.
+2023-07-31 01:16:37.028 +03:00 [INF] Executed ViewResult - view Index executed in 111.1163ms.
+2023-07-31 01:16:37.029 +03:00 [INF] Executed action StocksApp.Controllers.TradeController.Index (StocksApp) in 915.172ms
+2023-07-31 01:16:37.030 +03:00 [INF] Executed endpoint 'StocksApp.Controllers.TradeController.Index (StocksApp)'
+2023-07-31 01:16:37.031 +03:00 [INF] Response:
+StatusCode: 200
+Content-Type: text/html; charset=utf-8
+Set-Cookie: [Redacted]
+X-Frame-Options: [Redacted]
+Cache-Control: [Redacted]
+Pragma: [Redacted]
+2023-07-31 01:16:37.032 +03:00 [INF] HTTP GET /Trade/Index/MSFT responded 200 in 991.2294 ms
+2023-07-31 01:16:37.038 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost/Trade/Index/MSFT - - - 200 - text/html;+charset=utf-8 1007.6133ms

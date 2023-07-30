@@ -20,10 +20,16 @@ namespace StocksApp
             services.AddControllersWithViews();
             IServiceCollection serviceCollection = services.Configure<TradingOptions>(configuration.GetSection("TradingOptions"));
             services.AddHttpClient();
-            services.AddScoped<IFinnhubService, FinnhubService>();
-            services.AddScoped<IStocksService, StocksService>();
+
+            services.AddScoped<IFinnhubGetterService, FinnhubGetterService>();
+            services.AddScoped<IFinnhubSearcherService, FinnhubSearcherService>();
+
+            services.AddScoped<IStocksGetterService, StocksGetterService>();
+            services.AddScoped<IStocksCreaterService, StocksCreaterService>();
+
             services.AddScoped<IFinnhubRepository, FinnhubRepository>();
             services.AddScoped<IStocksRepository, StocksRepository>();
+
             services.AddDbContext<StockMarketDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));

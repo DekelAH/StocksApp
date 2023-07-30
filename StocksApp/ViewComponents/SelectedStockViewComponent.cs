@@ -11,19 +11,19 @@ namespace StocksApp.ViewComponents
         #region Fields
 
         private readonly TradingOptions _tradingOptions;
-        private readonly IFinnhubService _finnhubService;
-        private readonly IStocksService _stocksService;
+        private readonly IFinnhubGetterService _finnhubGetterService;
+        private readonly IStocksGetterService _stocksService;
         private readonly IConfiguration _configuration;
 
         #endregion
 
         #region Ctors
 
-        public SelectedStockViewComponent(IOptions<TradingOptions> tradingOptions, IFinnhubService finnhubService,
-            IStocksService stocksService, IConfiguration configuration)
+        public SelectedStockViewComponent(IOptions<TradingOptions> tradingOptions, IFinnhubGetterService finnhubGetterService,
+            IStocksGetterService stocksService, IConfiguration configuration)
         {
             _tradingOptions = tradingOptions.Value;
-            _finnhubService = finnhubService;
+            _finnhubGetterService = finnhubGetterService;
             _stocksService = stocksService;
             _configuration = configuration;
         }
@@ -38,8 +38,8 @@ namespace StocksApp.ViewComponents
 
             if (stockSymbol != null)
             {
-                companyProfileDictionary = await _finnhubService.GetCompanyProfile(stockSymbol);
-                var stockPriceDic = await _finnhubService.GetStockPriceQuote(stockSymbol);
+                companyProfileDictionary = await _finnhubGetterService.GetCompanyProfile(stockSymbol);
+                var stockPriceDic = await _finnhubGetterService.GetStockPriceQuote(stockSymbol);
 
                 if (companyProfileDictionary != null && stockPriceDic != null)
                 {
